@@ -1,6 +1,28 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: text/event-stream");
+$log = fopen(__DIR__ . "/chat.txt", "a") or die("Writing file failed.");
+$lines = explode("----------------", $log); // 分离每行日志
+$ips = array(); // 用于存储IP地址及其发布的次数
+foreach ($lines as $line) {
+    if (strpos($line, "|") !== false) { // 如果这行包含IP地址
+        $ip = trim(explode("|", $line)[0]); // 获取IP地址并去除空格
+        $date = explode(" ", trim(explode("|", $line)[1]))[0]; // 获取日期
+        if ($date == date("Y-m-d")) { // 如果日期是当天
+            if (!isset($ips[$ip])) {
+                $ips[$ip] = 0;
+            }
+            $ips[$ip]++; // 增加这个IP地址的发布次数
+        }
+    }
+}
+$limit = 30;
+foreach ($ips as $ip => $count) {
+    if($_SERVER["REMOTE_ADDR"] == $ip && $count >= $limit) {
+        echo "您今天已经超过了 $limit 次了，明天再来吧！";
+        die;
+    }
+}
 session_start();
 $postData = $_SESSION['data'];
 $_SESSION['response'] = "";
