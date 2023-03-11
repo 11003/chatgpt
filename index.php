@@ -42,7 +42,7 @@ foreach ($ips as $ip => $count) {
                     <h2 class="logo"><a class="links" href="https://musclewiki.cn/" title="MuscleWiki健身AI助手"><span class="logo-title">健身AI助手</span></a></h2>
                 </div>
 				<div class="header-logo">
-					<span class="logo"><a class="links" id="clean" title="清空对话信息"><span class="logo-title">清空对话信息</span></a></>
+					<span class="logo"><a class="links" id="clean" title="清空对话信息"><span class="logo-title">清空对话信息</span></a></span>
 				</div>
 			</div>
 		</header>
@@ -85,6 +85,16 @@ foreach ($ips as $ip => $count) {
 	<script src="js/chat.js?v2.8"></script>
 	<script src="js/highlight.min.js"></script>
 	<script src="js/showdown.min.js"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?40deb87d17f8fbd6e85639c58355aeae";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
 </body>
 
 </html>
