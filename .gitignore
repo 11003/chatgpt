@@ -6,4 +6,4 @@
 runtime/*
 .htaccess
 nginx.htaccess
-key.php
+dist
