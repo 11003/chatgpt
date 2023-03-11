@@ -48,7 +48,6 @@ $(document).ready(function () {
         }
 
         $("#ai-btn").text('AI正思考中').addClass('loading_text')
-
         function streaming() {
             var es = new EventSource("stream.php");
             var isstarted = true;
@@ -83,6 +82,11 @@ $(document).ready(function () {
                     $("#kw-target").attr("disabled", true);
                     // layer.msg("处理成功！");
                     isstarted = false;
+                    if (event.data.startsWith("您今天已经超过了")) {
+                        $("#ai-btn").text('发送').removeClass('loading_text');
+                        layer.msg(event.data);
+                        return;
+                    }
                     answer = randomString(16);
                     $("#article-wrapper").append('<li class="article-title" id="q' + answer + '"><pre></pre></li>');
                     for (var j = 0; j < prompt.length; j++) {
