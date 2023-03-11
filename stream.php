@@ -1,12 +1,13 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: text/event-stream");
-
+$key = require_once 'key.php';
+//$key = file_get_contents(__DIR__ . "/key"); // 读取文件内容
 session_start();
 $postData = $_SESSION['data'];
 $_SESSION['response'] = "";
 $ch = curl_init();
-$OPENAI_API_KEY = "";
+$OPENAI_API_KEY = $key;
 if ((isset($_SESSION['key'])) && (!empty($_POST['key']))) {
     $OPENAI_API_KEY = $_SESSION['key'];
 }
