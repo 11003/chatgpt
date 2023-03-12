@@ -305,7 +305,9 @@ progress {
     vertical-align:baseline;
 }
 textarea {
-    overflow:auto;
+    overflow: auto;
+    border: 0;
+    resize: none;
 }
 [type="checkbox"], [type="radio"] {
     box-sizing:border-box;
@@ -1022,13 +1024,14 @@ a.unlinks-deco {
     border-radius:var(--zhuluan-primary-border-radius) var(--zhuluan-primary-border-radius) 0 0;
 }
 #kw-target-box #kw-target {
-    display:block;
-    height:36px;
-    width:100%;
-    padding-left:13px;
-    font-size:16px;
-    font-weight:500;
-    color:#fff;
+    display: block;
+    width: 100%;
+    padding-left: 13px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    background: transparent;
+    height: auto;
 }
 #kw-target::-webkit-input-placeholder {
     color:var(--zhuluan-custom-b8-color)
@@ -1781,4 +1784,16 @@ a.unlinks-deco {
     border-color:#fff transparent #fff transparent;
     -webkit-animation-direction:reverse;
     animation-direction:reverse;
+}
+.codebutton {
+    float: right;
+    width: 50px;
+    text-align: center;
+    line-height: 22px;
+    font-size: 14px;
+    border-radius: var(--zhuluan-primary-border-radius);
+    cursor: pointer;
+    transition: all .4s;
+    color: var(--zhuluan-black-3-color);
+    background: linear-gradient(90deg, var(--zhuluan-custom-e8-color), var(--zhuluan-custom-d8-color));
 }
